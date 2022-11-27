@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Insert title here</title>
+</head>
+<body>
+<h1>文件上传入门案例</h1>
+<form action="http://localhost:8080/files/upload" method="post"
+      enctype="multipart/form-data">
+
+    文件名称:<input name = "file" type="file"/><br>
+    <input type="submit" value="提交"/>
+</form>
+
+<!--unless时if的反义 为true就不显示-->
+<div style="color: red" th:unless="${#strings.isEmpty(msg)}" th:text="${msg}"></div>
+</body>
+
+

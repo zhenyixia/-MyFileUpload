@@ -1,0 +1,25 @@
+CREATE TABLE `t_user` (
+	`id` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '用户id',
+	`username` VARCHAR(255) NOT NULL COMMENT '昵称' COLLATE 'utf8_general_ci',
+	`password` VARCHAR(32) NULL DEFAULT NULL COMMENT 'MD5(MD5(pass明文+固定salt)+salt' COLLATE 'utf8_general_ci',
+	`update_time` DATETIME NULL DEFAULT CURRENT_TIMESTAMP COMMENT '上次登录时间',
+	PRIMARY KEY (`id`) USING BTREE
+)COLLATE='utf8_general_ci' ENGINE=InnoDB;
+INSERT INTO t_user(username,PASSWORD) VALUES('test','test');
+
+CREATE TABLE `t_files` (
+	`id` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '用户id',
+	`userId` BIGINT(20) UNSIGNED NOT NULL COMMENT '用户id',
+	`oldFileName` VARCHAR(255) NOT NULL COMMENT '昵称' COLLATE 'utf8_general_ci',
+	`newFileName` VARCHAR(32) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`ext` VARCHAR(32) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`path` VARCHAR(32) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`size` INT(11) NULL DEFAULT NULL,
+	`type` VARCHAR(32) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`isImg` VARCHAR(32) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`downCounts` INT(11) NULL DEFAULT NULL,
+	`globalPath` VARCHAR(100) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`uploadTime` DATETIME NULL DEFAULT CURRENT_TIMESTAMP COMMENT '上次登录时间',
+	PRIMARY KEY (`id`) USING BTREE
+)COLLATE='utf8_general_ci' ENGINE=InnoDB AUTO_INCREMENT=3;
+
